@@ -5,15 +5,31 @@ export const TodoStyle = styled.section`
   width: 600px;
   form {
     margin-block-end: 1rem;
-    input {
-      width: 100%;
-      height: 55px;
-      background: ${(p) => p.theme.todoBg};
-      border: none;
-      outline: none;
-      border-radius: 5px;
-      padding-inline: 3rem;
-      color: ${(p) => p.theme.color};
+    & > div:first-child {
+      input {
+        width: 100%;
+        height: 55px;
+        background: ${(p) => p.theme.todoBg};
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding-inline: 3rem;
+        color: ${(p) => p.theme.color};
+        position: relative;
+      }
+      &::before {
+        content: "";
+        z-index: 100;
+        color: white;
+        width: 20px;
+        height: 20px;
+        border: 1px solid ${(p) => p.theme.dkGrayishBlue_2};
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        margin: 1rem 1rem;
+        cursor: pointer;
+      }
     }
   }
   .tasks {
@@ -101,7 +117,9 @@ export const TodoDiv = styled.div`
         ? `1px solid ${p.theme.brightBlue}`
         : p.iscomplete
         ? ""
-        : `1px solid ${p.theme.vDkGrayishBlue_3}`};
+        : `1px solid ${
+            p.isdark ? p.theme.vDkGrayishBlue_3 : p.theme.lthGrayishBlue_2
+          }`};
 
     display: inline-block;
     width: 20px;
@@ -135,7 +153,7 @@ export const TodoDiv = styled.div`
       span {
         display: block;
         img {
-          width: 15px;
+          width: 100%;
         }
       }
     }

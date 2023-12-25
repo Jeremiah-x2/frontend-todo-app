@@ -1,8 +1,12 @@
 import { TodoDiv } from "./styles/Todo.styled";
 
-const TodoDivContainer = ({ item, deleteTodo, completed }) => {
+const TodoDivContainer = ({ item, deleteTodo, completed, darkMode }) => {
   return (
-    <TodoDiv iscomplete={item.complete} isactive={item.active}>
+    <TodoDiv
+      iscomplete={item.complete}
+      isactive={item.active}
+      isdark={darkMode}
+    >
       <span onClick={() => completed(item.id)}>
         {item.complete && <img src="/images/icon-check.svg" alt="" />}
       </span>

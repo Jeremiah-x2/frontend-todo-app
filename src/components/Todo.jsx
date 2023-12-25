@@ -73,13 +73,15 @@ const Todo = ({ darkMode }) => {
         <TasksDispatchContext.Provider value={dispatch}>
           <TodoStyle>
             <form onSubmit={(e) => addTask(e)}>
-              <input
-                type="text"
-                name="todo"
-                onChange={handleChange}
-                value={addingTask}
-                placeholder="Create a new todo..."
-              />
+              <div>
+                <input
+                  type="text"
+                  name="todo"
+                  onChange={handleChange}
+                  value={addingTask}
+                  placeholder="Create a new todo..."
+                />
+              </div>
             </form>
             <section className="tasks">
               <div className="todos">
@@ -91,11 +93,7 @@ const Todo = ({ darkMode }) => {
                         item={item}
                         deleteTodo={deleteTodo}
                         completed={completed}
-                        // draggable={true}
-                        num={tasks.indexOf(item)}
-                        dispatch={dispatch}
-                        // newPos={newPos}
-                        // dropTask={dropTask}
+                        darkMode={darkMode}
                       />
                     ))
                   ) : filter.toLowerCase() !== "all" &&
