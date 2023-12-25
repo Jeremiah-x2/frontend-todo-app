@@ -21,6 +21,7 @@ body {
         background-repeat: no-repeat;
         background-color: ${(p) => p.theme.bg};
         padding: 1rem;
+        padding-bottom: 5rem;
         background-size: 100%;
     }
 }
