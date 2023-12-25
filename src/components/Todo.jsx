@@ -1,5 +1,5 @@
 import React, { Fragment, useReducer, useState } from "react";
-import { TodoStyle, TodoDiv } from "./styles/Todo.styled";
+import { TodoStyle } from "./styles/Todo.styled";
 import {
   TasksContext,
   TasksDispatchContext,
@@ -23,8 +23,6 @@ const Todo = ({ darkMode }) => {
   if ([]) {
     console.log("working");
   }
-
-  // const setItem = localStorage.setItem("todos", JSON.stringify(tasks));
 
   console.log(savedTodoTasks);
 
@@ -74,30 +72,9 @@ const Todo = ({ darkMode }) => {
                 value={addingTask}
                 placeholder="Create a new todo..."
               />
-              {/* <button>submit</button> */}
             </form>
             <section className="tasks">
-              {/* {tasks.length > 0 && ( */}
               <div className="todos">
-                {/* {filter.toLowerCase() === "all"
-                    ? tasks.map((item, index) => (
-                        <TodoDivContainer
-                          key={index}
-                          item={item}
-                          deleteTodo={deleteTodo}
-                          completed={completed}
-                        />
-                      ))
-                    : tasks
-                        .filter((item) => item[filter.toLowerCase()])
-                        .map((item, index) => (
-                          <TodoDivContainer
-                            key={index}
-                            item={item}
-                            deleteTodo={deleteTodo}
-                            completed={completed}
-                          />
-                        ))} */}
                 {tasks.length !== 0 ? (
                   filter.toLowerCase() === "all" ? (
                     tasks.map((item, index) => (
@@ -152,7 +129,10 @@ const Todo = ({ darkMode }) => {
                     </span>
                   ))}
                 </div>
-                <div className="clear--finished" onClick={clearComplete}>
+                <div
+                  className={`clear--finished ${!darkMode && "light--mode"}`}
+                  onClick={clearComplete}
+                >
                   Clear Completed
                 </div>
               </div>

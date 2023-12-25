@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Global } from "./components/styles/Global.styled";
-// import { theme } from "./theme";
 import Home from "./components/Home";
 
 const App = () => {

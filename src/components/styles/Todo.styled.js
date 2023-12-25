@@ -60,9 +60,14 @@ export const TodoStyle = styled.section`
       }
     }
   }
-  .clear--finished:hover {
-    cursor: pointer;
-    color: #fff;
+  .clear--finished {
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+    &.light--mode:hover {
+      color: ${(p) => p.theme.vDkGrayishBlue_2};
+    }
   }
 
   @media screen and (max-width: 600px) {
