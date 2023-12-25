@@ -1,4 +1,4 @@
-import React, { Fragment, useReducer, useState } from "react";
+import React, { Fragment, useEffect, useReducer, useState } from "react";
 import { TodoStyle } from "./styles/Todo.styled";
 import {
   TasksContext,
@@ -20,19 +20,12 @@ const Todo = ({ darkMode }) => {
   const [filter, setFilter] = useState("All");
   const itemsRemaining = tasks.filter((item) => !item.complete).length;
 
-  if ([]) {
-    console.log("working");
-  }
-
-  console.log(savedTodoTasks);
-
   const handleChange = (e) => {
     setAddingTask(e.target.value);
   };
   const addTask = (event) => {
     event.preventDefault();
     dispatch({ type: "add", value: event.target.todo.value });
-    const updatedTask = tasks;
     setAddingTask("");
   };
   const completed = (id) => {
@@ -58,6 +51,10 @@ const Todo = ({ darkMode }) => {
       id,
     });
   };
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(tasks));
+  });
 
   return (
     <Fragment>
