@@ -15,6 +15,7 @@ const Todo = ({ darkMode }) => {
   ) {
     savedTodoTasks = JSON.parse(localStorage.getItem("todos"));
   }
+
   const [addingTask, setAddingTask] = useState("");
   const [tasks, dispatch] = useReducer(tasksReducer, savedTodoTasks || []);
   const [filter, setFilter] = useState("All");
@@ -52,6 +53,16 @@ const Todo = ({ darkMode }) => {
     });
   };
 
+  // TESTING
+  // const newPos = (e, num) => {
+  //   setX(num);
+  // };
+  // console.log(tasks[x]);
+  // const dropTask = (e, num) => {
+  //   dispatch({ type: "reorder", oldPos: num, newPosition: x });
+  // };
+  // End
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(tasks));
   });
@@ -80,6 +91,11 @@ const Todo = ({ darkMode }) => {
                         item={item}
                         deleteTodo={deleteTodo}
                         completed={completed}
+                        // draggable={true}
+                        num={tasks.indexOf(item)}
+                        dispatch={dispatch}
+                        // newPos={newPos}
+                        // dropTask={dropTask}
                       />
                     ))
                   ) : filter.toLowerCase() !== "all" &&

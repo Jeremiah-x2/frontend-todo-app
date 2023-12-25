@@ -25,7 +25,6 @@ const App = () => {
     lthGrayishBlue_2: "hsl(234, 39%, 85%)",
     vDkGrayishBlue_2: "hsl(233, 14%, 35%)",
     vDkGrayishBlue_3: "hsl(237, 14%, 26%)",
-    lthGrayishBlue_2: "hsl(234, 39%, 85%)",
     veryLthGray: "hsl(0, 0%, 98%)",
   };
 

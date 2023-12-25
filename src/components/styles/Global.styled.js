@@ -15,6 +15,7 @@ body {
     background-repeat: no-repeat;
     background-color: ${(p) => p.theme.bg};
     padding-inline: 2rem;
+    padding-bottom: 5rem;
     @media screen and (max-width: 800px) {
         background-image: url(${(p) => p.theme.bgMobileImg});
         background-repeat: no-repeat;

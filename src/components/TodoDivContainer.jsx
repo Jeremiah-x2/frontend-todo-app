@@ -1,4 +1,5 @@
 import { TodoDiv } from "./styles/Todo.styled";
+
 const TodoDivContainer = ({ item, deleteTodo, completed }) => {
   return (
     <TodoDiv iscomplete={item.complete} isactive={item.active}>

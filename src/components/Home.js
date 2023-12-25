@@ -6,7 +6,7 @@ import { styled } from "styled-components";
 const Home = ({ setDarkMode, darkMode }) => {
   return (
     <HomeStyle>
-      <Header setDarkMode={setDarkMode} />
+      <Header setDarkMode={setDarkMode} darkMode={darkMode} />
       <Container>
         <Todo darkMode={darkMode} />
       </Container>
@@ -18,7 +18,6 @@ export default Home;
 
 const HomeStyle = styled.div`
   width: 100%;
-  /* border: 5px solid blue; */
   display: flex;
   flex-direction: column;
   align-items: center;

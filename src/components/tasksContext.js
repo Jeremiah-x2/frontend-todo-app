@@ -6,9 +6,6 @@ export const TasksDispatchContext = createContext(null);
 export function tasksReducer(tasksState, action) {
   switch (action.type) {
     case "add":
-      if (tasksState.length === 6) {
-        return tasksState;
-      }
       if (action.value !== "") {
         return [
           ...tasksState,
@@ -24,7 +21,6 @@ export function tasksReducer(tasksState, action) {
     case "complete":
       return [...tasksState].map((item) => {
         if (item.id === action.id) {
-          // return { ...item, active: !item.active };
           if (item.active === false && item.complete === false) {
             return { ...item, active: true };
           }
@@ -41,24 +37,13 @@ export function tasksReducer(tasksState, action) {
       return [...tasksState].filter((item) => !item.complete);
     case "deleteTodo":
       return [...tasksState].filter((item) => item.id !== action.id);
+    case "reorder":
+      let temp = tasksState[action.oldPos];
+      // tasksState[action.newPosition] = tasksState[temp];
+      [...tasksState][action.oldPos] = [...tasksState][action.newPosition];
+      [...tasksState][action.newPosition] = temp;
+      return [...tasksState];
     default:
       return;
   }
 }
-
-// export const addTask = (event) => {
-//   event.preventDefault();
-//   dispatch({ type: "add", value: event.target.todo.value });
-//   setAddingTask("");
-// };
-// export const completed = (id) => {
-//   console.log(tasks);
-//   dispatch({
-//     type: "complete",
-//     id: id,
-//   });
-// };
-// // console.log("hello");
-// export const filterTask = (filterBy) => {
-//   setFilter(filterBy);
-// };
